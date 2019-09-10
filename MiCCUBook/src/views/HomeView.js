@@ -9,9 +9,13 @@ import {
     Icon,
     Title,
     Text,
+    List,
+    ListItem,
+    Content
  } from 'native-base';
- import { Platform, StyleSheet } from 'react-native';
+ import { Platform, StyleSheet, FlatList } from 'react-native';
  import colors from '@assets/colors';
+ import SectionCard from '@components/SectionCard';
 
 export default class HomeView extends React.Component {
 
@@ -43,6 +47,17 @@ export default class HomeView extends React.Component {
         return(
           <Container>
               {this.renderHeader()}
+              <Content>
+                <List>
+                    <ListItem>
+                        <SectionCard title='Here' section='Section 1'/>
+                    </ListItem>
+                    <ListItem>
+                        <SectionCard  title='Here2' section='Section 2'/>
+                    </ListItem>
+                </List>
+              </Content>
+
           </Container>
         )
     }
