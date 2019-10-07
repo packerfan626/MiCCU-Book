@@ -10,31 +10,41 @@ import {
     Text,
     Card,
     CardItem,
-    Footer
- } from 'native-base';
- import { Platform, StyleSheet } from 'react-native';
- import colors from '@assets/colors';
+    Content,
+} from 'native-base';
+import { 
+    Platform, 
+    StyleSheet,
+    TouchableOpacity 
+} from 'react-native';
+import colors from '@assets/colors';
 
 export default class SectionCard extends React.Component {
 
+    onCardPressed = () => {
+        console.log('Card Pressed')
+    }
+
     render() {
-        return(
-          <Container>
-              <Card>
-                <CardItem>
-                    <Body>
+        return (
+          <Content>
+              <TouchableOpacity onPress={() => this.onCardPressed()}>
+                <Card>
+                    <CardItem>
+                        <Body>
+                            <Text>
+                                {this.props.title}
+                            </Text>
+                        </Body>
+                    </CardItem>
+                    <CardItem>
                         <Text>
-                            {this.props.title}
+                            {this.props.section}
                         </Text>
-                    </Body>
-                </CardItem>
-                <CardItem footer>
-                    <Text>
-                        {this.props.section}
-                    </Text>
-                </CardItem>
-              </Card>
-          </Container>
+                    </CardItem>
+                </Card>
+              </TouchableOpacity>
+          </Content>
         )
     }
 }
