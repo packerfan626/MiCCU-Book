@@ -13,7 +13,10 @@ import {
     ListItem,
     Content
  } from 'native-base';
- import { Platform, StyleSheet, FlatList } from 'react-native';
+ import { 
+     Platform, 
+     StyleSheet 
+} from 'react-native';
  import colors from '@assets/colors';
  import SectionCard from '@components/SectionCard';
 
@@ -23,14 +26,18 @@ export default class HomeView extends React.Component {
         super(props);
     }
 
+    aboutButtonPressed = () => {
+        this.props.navigation.navigate('About');
+    }
+
     renderHeader(){
         return(
             <Header>
                 <Left>
-                    <Button transparent>
-                        {Platform.OS === 'ios' ? 
-                            <Icon name='ios-information-circle' style={styles.header_icons}/> : 
-                            <Icon name='md-information-circle' style={styles.header_icons}/> }  
+                    <Button transparent onPress={() => this.aboutButtonPressed()}>
+                        { Platform.OS === 'ios' ? 
+                            <Icon name='ios-information-circle-outline' style={styles.header_icons}/> : 
+                            <Icon name='md-information-circle-outline' style={styles.header_icons}/> }  
                      </Button>   
                 </Left>
                 <Body>
@@ -53,11 +60,19 @@ export default class HomeView extends React.Component {
                         <SectionCard title='Here' section='Section 1'/>
                     </ListItem>
                     <ListItem>
-                        <SectionCard  title='Here2' section='Section 2'/>
+                        <SectionCard title='Here2' section='Section 2'/>
+                    </ListItem>
+                    <ListItem>
+                        <SectionCard title='Here3' section='Section 2'/>
+                    </ListItem>
+                    <ListItem>
+                        <SectionCard title='Here4' section='Section 2'/>
+                    </ListItem>
+                    <ListItem>
+                        <SectionCard title='Here5' section='Section 2'/>
                     </ListItem>
                 </List>
               </Content>
-
           </Container>
         )
     }
