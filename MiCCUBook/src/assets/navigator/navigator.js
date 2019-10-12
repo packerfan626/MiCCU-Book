@@ -7,6 +7,7 @@ import { createBottomTabNavigator } from 'react-navigation-tabs'
 import HomeView from '@views/HomeView';
 import AboutView from '@views/AboutView';
 import CalculatorView from '@views/CalculatorView';
+import PDFView from '@views/PDFView';
 
 // Components
 import { Icon } from 'native-base';
@@ -56,6 +57,9 @@ const MainAppNavigator = createStackNavigator ({
     },
     About: {
         screen: AboutView
+    },
+    PDF: {
+        screen: PDFView
     },
 }, {
     headerMode: 'none',

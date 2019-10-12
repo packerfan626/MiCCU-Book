@@ -37,7 +37,7 @@ export default class SectionCard extends React.Component {
     }
 
     onCardPressed = () => {
-        console.log('Card Pressed')
+        this.props.navigation.navigate('PDF');
     }
 
     render() {

@@ -29,7 +29,7 @@ export default class HomeView extends React.Component {
         this.props.navigation.navigate('About');
     }
 
-    renderHeader(){
+    renderHeader() {
         return (
             <Header searchBar>
                 <Left>
@@ -55,11 +55,11 @@ export default class HomeView extends React.Component {
                 {this.renderHeader()}
                 <Content>
                     <List>
-                        <SectionCard id='1' title='Here' section='Section 1'/>
-                        <SectionCard id='2' title='Here2' section='Section 2'/>
-                        <SectionCard id='3' title='Here3' section='Section 3'/>
-                        <SectionCard id='4' title='Here4' section='Section 4'/>
-                        <SectionCard id='5' title='Here5' section='Section 5'/>
+                        <SectionCard id='1' title='Here' section='Section 1' navigation={this.props.navigation}/>
+                        <SectionCard id='2' title='Here2' section='Section 2' navigation={this.props.navigation}/>
+                        <SectionCard id='3' title='Here3' section='Section 3' navigation={this.props.navigation}/>
+                        <SectionCard id='4' title='Here4' section='Section 4' navigation={this.props.navigation}/>
+                        <SectionCard id='5' title='Here5' section='Section 5' navigation={this.props.navigation}/>
                     </List>
                 </Content>
             </Container>
