@@ -8,10 +8,8 @@ import {
     Button,
     Icon,
     Title,
-    Item,
     List,
     Content,
-    Input
  } from 'native-base';
  import { 
      Platform, 
@@ -21,6 +19,7 @@ import {
  import SectionCard from '@components/SectionCard';
 
 export default class HomeView extends React.Component {
+
     constructor(props){
         super(props);
     }
