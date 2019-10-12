@@ -8,10 +8,10 @@ import {
     Button,
     Icon,
     Title,
-    Text,
+    Item,
     List,
-    ListItem,
-    Content
+    Content,
+    Input
  } from 'native-base';
  import { 
      Platform, 
@@ -21,7 +21,6 @@ import {
  import SectionCard from '@components/SectionCard';
 
 export default class HomeView extends React.Component {
-
     constructor(props){
         super(props);
     }
@@ -31,8 +30,8 @@ export default class HomeView extends React.Component {
     }
 
     renderHeader(){
-        return(
-            <Header>
+        return (
+            <Header searchBar>
                 <Left>
                     <Button transparent onPress={() => this.aboutButtonPressed()}>
                         { Platform.OS === 'ios' ? 
@@ -41,7 +40,7 @@ export default class HomeView extends React.Component {
                      </Button>   
                 </Left>
                 <Body>
-                    <Title>MiCCU</Title>
+                    <Title style={styles.header_title_text}>MiCCU</Title>
                 </Body>
                 <Right>
                     {/* Render Nothing Here */}
@@ -51,29 +50,19 @@ export default class HomeView extends React.Component {
     }
 
     render() {
-        return(
-          <Container>
-              {this.renderHeader()}
-              <Content>
-                <List>
-                    <ListItem>
-                        <SectionCard title='Here' section='Section 1'/>
-                    </ListItem>
-                    <ListItem>
-                        <SectionCard title='Here2' section='Section 2'/>
-                    </ListItem>
-                    <ListItem>
-                        <SectionCard title='Here3' section='Section 2'/>
-                    </ListItem>
-                    <ListItem>
-                        <SectionCard title='Here4' section='Section 2'/>
-                    </ListItem>
-                    <ListItem>
-                        <SectionCard title='Here5' section='Section 2'/>
-                    </ListItem>
-                </List>
-              </Content>
-          </Container>
+        return (
+            <Container>
+                {this.renderHeader()}
+                <Content>
+                    <List>
+                        <SectionCard id='1' title='Here' section='Section 1'/>
+                        <SectionCard id='2' title='Here2' section='Section 2'/>
+                        <SectionCard id='3' title='Here3' section='Section 3'/>
+                        <SectionCard id='4' title='Here4' section='Section 4'/>
+                        <SectionCard id='5' title='Here5' section='Section 5'/>
+                    </List>
+                </Content>
+            </Container>
         )
     }
 }

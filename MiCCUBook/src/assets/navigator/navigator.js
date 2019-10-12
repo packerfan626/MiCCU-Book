@@ -37,7 +37,7 @@ const BottomTabNavigator = createBottomTabNavigator ({
 
             if (routeName==='Home') {
                 return (
-                    <Icon name='home' size={40} style={{color:tintColor}}/>
+                    <Icon name='book' size={40} style={{color:tintColor}}/>
                 )
             }
 
