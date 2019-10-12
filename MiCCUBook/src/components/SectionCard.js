@@ -1,19 +1,12 @@
 import React from 'react';
 import { 
-    Container,
-    Left,
     Body,
-    Right,
-    Button,
-    Icon,
-    Title,
     Text,
     Card,
     CardItem,
     Content,
 } from 'native-base';
 import { 
-    Platform, 
     StyleSheet,
     TouchableOpacity 
 } from 'react-native';
@@ -21,24 +14,46 @@ import colors from '@assets/colors';
 
 export default class SectionCard extends React.Component {
 
+    constructor(props) {
+        super(props);
+
+        this.state = {
+            cardColor: '',
+        }
+    }
+
+    componentDidMount() {
+        let id = this.props.id
+        let isOdd = this.isOdd(id)
+        let cardColor = (isOdd ? colors.MICHIGAN_YELLOW : colors.MICHIGAN_BLUE)
+
+        this.setState({
+            cardColor: cardColor
+        })
+    }
+
+    isOdd = (num) => {
+        return num % 2
+    }
+
     onCardPressed = () => {
-        console.log('Card Pressed')
+        this.props.navigation.navigate('PDF');
     }
 
     render() {
         return (
           <Content>
               <TouchableOpacity onPress={() => this.onCardPressed()}>
-                <Card>
-                    <CardItem>
+                <Card style={{backgroundColor:this.state.cardColor, marginRight: 8, marginLeft: 8}}>
+                    <CardItem style={{backgroundColor:this.state.cardColor}}>
                         <Body>
-                            <Text>
+                            <Text style={styles.section_title_text}>
                                 {this.props.title}
                             </Text>
                         </Body>
                     </CardItem>
-                    <CardItem>
-                        <Text>
+                    <CardItem style={{backgroundColor:this.state.cardColor}}>
+                        <Text style={styles.section_text}>
                             {this.props.section}
                         </Text>
                     </CardItem>
@@ -58,5 +73,13 @@ const styles = StyleSheet.create({
     },
     header_icons: {
         color:colors.TOP_HEADER_ICONS,
+    },
+    section_title_text: {
+        color: colors.WHITE_CARD_TEXT,
+        fontSize: 20,
+    },
+    section_text: {
+        color: colors.WHITE_CARD_TEXT,
+        fontSize: 12,
     }
 })

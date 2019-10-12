@@ -7,6 +7,7 @@ import { createBottomTabNavigator } from 'react-navigation-tabs'
 import HomeView from '@views/HomeView';
 import AboutView from '@views/AboutView';
 import CalculatorView from '@views/CalculatorView';
+import PDFView from '@views/PDFView';
 
 // Components
 import { Icon } from 'native-base';
@@ -37,7 +38,7 @@ const BottomTabNavigator = createBottomTabNavigator ({
 
             if (routeName==='Home') {
                 return (
-                    <Icon name='home' size={40} style={{color:tintColor}}/>
+                    <Icon name='book' size={40} style={{color:tintColor}}/>
                 )
             }
 
@@ -56,6 +57,9 @@ const MainAppNavigator = createStackNavigator ({
     },
     About: {
         screen: AboutView
+    },
+    PDF: {
+        screen: PDFView
     },
 }, {
     headerMode: 'none',
