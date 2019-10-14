@@ -73,11 +73,11 @@ export default class AboutView extends React.Component {
                             Brief Description of Handbook {"\n"}
                             Brief Description of Handbook {"\n"}
                         </Text>
-                        <Text style={styles.footer_text}>
-                            Copyright © 2019 University of Michigan
-                        </Text>
                     </Container>
                 </Content>
+                <Text style={styles.footer_text}>
+                    Copyright © 2019 University of Michigan
+                </Text>
             </Container>
         )
     }
@@ -110,6 +110,7 @@ const styles = StyleSheet.create({
     },
     footer_text: {
         justifyContent: 'flex-end',
-        marginTop: 269
+        paddingBottom: 15,
+        alignSelf: 'center'
     }
 })
