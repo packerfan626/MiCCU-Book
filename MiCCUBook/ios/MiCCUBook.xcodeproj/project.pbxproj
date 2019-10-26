@@ -16,6 +16,7 @@
 		2D02E4BD1E0B4A84006451C7 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB51A68108700A75B9A /* Images.xcassets */; };
 		2D02E4BF1E0B4AB3006451C7 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
 		2DCD954D1E0B4F2C00145EB5 /* MiCCUBookTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 00E356F21AD99517003FC87E /* MiCCUBookTests.m */; };
+		41CB5FDE23641A20005DE6A2 /* www in Resources */ = {isa = PBXBuildFile; fileRef = 41CB5FDD23641A20005DE6A2 /* www */; };
 		45CA5CEDDD091109838D37EE /* libPods-MiCCUBook-tvOSTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 430C6B12C4A19241F848B432 /* libPods-MiCCUBook-tvOSTests.a */; };
 		89DE6FDC89A4290797F82184 /* libPods-MiCCUBookTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 35E9681AAD9A165B1AE4D2CC /* libPods-MiCCUBookTests.a */; };
 		A523046269B03AB1B484D75C /* libPods-MiCCUBook-tvOS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = FE308E62CE8FBFF9DEF70CD9 /* libPods-MiCCUBook-tvOS.a */; };
@@ -55,6 +56,7 @@
 		2D02E47B1E0B4A5D006451C7 /* MiCCUBook-tvOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "MiCCUBook-tvOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		2D02E4901E0B4A5D006451C7 /* MiCCUBook-tvOSTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "MiCCUBook-tvOSTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		35E9681AAD9A165B1AE4D2CC /* libPods-MiCCUBookTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-MiCCUBookTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		41CB5FDD23641A20005DE6A2 /* www */ = {isa = PBXFileReference; lastKnownFileType = folder; name = www; path = ../../../../Desktop/www; sourceTree = "<group>"; };
 		41F2E75D6790D27F7A185F56 /* libPods-MiCCUBook.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-MiCCUBook.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		430C6B12C4A19241F848B432 /* libPods-MiCCUBook-tvOSTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-MiCCUBook-tvOSTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		43F1B3E082CEA40BD9F4D72A /* Pods-MiCCUBookTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MiCCUBookTests.debug.xcconfig"; path = "Target Support Files/Pods-MiCCUBookTests/Pods-MiCCUBookTests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -125,6 +127,7 @@
 		13B07FAE1A68108700A75B9A /* MiCCUBook */ = {
 			isa = PBXGroup;
 			children = (
+				41CB5FDD23641A20005DE6A2 /* www */,
 				008F07F21AC5B25A0029DE68 /* main.jsbundle */,
 				13B07FAF1A68108700A75B9A /* AppDelegate.h */,
 				13B07FB01A68108700A75B9A /* AppDelegate.m */,
@@ -161,7 +164,6 @@
 				43F1B3E082CEA40BD9F4D72A /* Pods-MiCCUBookTests.debug.xcconfig */,
 				1B4E418E68CADFE4B85D3285 /* Pods-MiCCUBookTests.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -309,6 +311,7 @@
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
 			knownRegions = (
+				English,
 				en,
 				Base,
 			);
@@ -337,6 +340,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				41CB5FDE23641A20005DE6A2 /* www in Resources */,
 				13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */,
 				13B07FBD1A68108700A75B9A /* LaunchScreen.xib in Resources */,
 			);
