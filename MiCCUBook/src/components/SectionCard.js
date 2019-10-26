@@ -54,7 +54,7 @@ export default class SectionCard extends React.Component {
                     </CardItem>
                     <CardItem style={{backgroundColor:this.state.cardColor}}>
                         <Text style={styles.section_text}>
-                            {this.props.section}
+                            Section {this.props.section}
                         </Text>
                     </CardItem>
                 </Card>
