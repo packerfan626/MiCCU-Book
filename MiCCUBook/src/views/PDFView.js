@@ -8,17 +8,12 @@ import {
     Button,
     Icon,
     Title,
-    Item,
-    List,
-    Content,
-    Input
  } from 'native-base';
  import { 
      Platform, 
      StyleSheet 
 } from 'react-native';
  import colors from '@assets/colors';
- import SectionCard from '@components/SectionCard';
 
 export default class PDFView extends React.Component {
 
