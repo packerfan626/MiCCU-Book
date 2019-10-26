@@ -10,13 +10,13 @@ import {
     Title,
     List,
     Content,
- } from 'native-base';
- import { 
-     Platform, 
-     StyleSheet 
+} from 'native-base';
+import { 
+    Platform, 
+    StyleSheet 
 } from 'react-native';
- import colors from '@assets/colors';
- import SectionCard from '@components/SectionCard';
+import colors from '@assets/colors';
+import SectionCard from '@components/SectionCard';
 
 export default class HomeView extends React.Component {
 
