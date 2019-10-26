@@ -84,11 +84,14 @@ export default class HomeView extends React.Component {
     renderSectionList() {
         var sections = this.state.sections
         return sections.map((section) => {
+            // Convert pageNumber to an integer
+            var pageNumber = Number(section.pdfPageNumber)
             return(
                 <SectionCard 
                     id={section.sectionNumber} 
                     title={section.sectionTitle} 
                     section={section.sectionNumber}
+                    pdfPageNumber={pageNumber}
                     navigation={this.props.navigation}
                 />
             )
