@@ -33,8 +33,6 @@ export default class PDFView extends React.Component {
     componentDidMount() {
         const { navigation } = this.props
 
-        console.log(navigation)
-
         this.setState({
             title: navigation.getParam('title', ''),
             pageNumber: navigation.getParam('pdfPageNumber', ''),
