@@ -18,7 +18,6 @@ import colors from '@assets/colors';
 import Pdf from 'react-native-pdf';
 
 export default class PDFView extends React.Component {
-
     constructor(props){
         super(props);
 
