@@ -99,12 +99,15 @@ const styles = StyleSheet.create({
         justifyContent: 'center',
     },
     book_title_text: {
+        fontSize: 20,
         paddingBottom: 10
     },
     acknowledgements_title_text: {
+        fontSize: 15,
         fontWeight: 'bold'
     },
     acknowledgements_text: {
+        fontSize: 13,
         textAlign: 'center',
         paddingBottom: 10
     },

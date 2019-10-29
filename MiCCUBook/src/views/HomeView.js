@@ -10,18 +10,51 @@ import {
     Title,
     List,
     Content,
- } from 'native-base';
- import { 
-     Platform, 
-     StyleSheet 
+} from 'native-base';
+import { 
+    Platform, 
+    StyleSheet 
 } from 'react-native';
- import colors from '@assets/colors';
- import SectionCard from '@components/SectionCard';
+import colors from '@assets/colors';
+import SectionCard from '@components/SectionCard';
+import { openDatabase } from 'react-native-sqlite-storage';
+
+// // Connection to access pre-populated MiCCU.db
+var db = openDatabase({ name: 'MiCCU.db', createFromLocation : 1});
 
 export default class HomeView extends React.Component {
-
     constructor(props){
         super(props);
+        this.state = {
+            sections: [],
+            isLoading: false,
+        }
+    }
+
+    async componentDidMount() {
+        await this.getSectionsFromDb()
+    }
+
+    getSectionsFromDb() {
+        this.setState({
+            isLoading: true
+        })
+
+        db.transaction(txn => {
+            txn.executeSql('SELECT * FROM Sections WHERE isSubSection=0', [], (txn, results) => {
+                var temp = []
+                for (let i = 0; i < results.rows.length; i++){
+                    temp.push(results.rows.item(i))
+                }
+                this.setState({
+                    sections: temp
+                })
+            })
+        })
+
+        this.setState({
+            isLoading: false
+        })
     }
 
     aboutButtonPressed = () => {
@@ -48,17 +81,31 @@ export default class HomeView extends React.Component {
         )
     }
 
+    renderSectionList() {
+        var sections = this.state.sections
+        return sections.map((section) => {
+            // Convert pageNumber to an integer
+            var pageNumber = Number(section.pdfPageNumber)
+            return(
+                <SectionCard 
+                    id={section.sectionNumber} 
+                    title={section.sectionTitle} 
+                    section={section.sectionNumber}
+                    pdfPageNumber={pageNumber}
+                    navigation={this.props.navigation}
+                />
+            )
+        })
+    }
+
     render() {
+        var isLoading = this.state.isLoading
         return (
             <Container>
                 {this.renderHeader()}
                 <Content>
                     <List>
-                        <SectionCard id='1' title='Here' section='Section 1' navigation={this.props.navigation}/>
-                        <SectionCard id='2' title='Here2' section='Section 2' navigation={this.props.navigation}/>
-                        <SectionCard id='3' title='Here3' section='Section 3' navigation={this.props.navigation}/>
-                        <SectionCard id='4' title='Here4' section='Section 4' navigation={this.props.navigation}/>
-                        <SectionCard id='5' title='Here5' section='Section 5' navigation={this.props.navigation}/>
+                        {isLoading ? <View></View> : this.renderSectionList()}
                     </List>
                 </Content>
             </Container>
