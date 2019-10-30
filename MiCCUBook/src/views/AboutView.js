@@ -31,11 +31,7 @@ export default class AboutView extends React.Component {
         return(
             <Header>
                 <Left>
-                    <Button transparent onPress={() => this.closeButtonPressed()}>
-                        { Platform.OS === 'ios' ? 
-                            <Icon name='ios-close' style={styles.header_icons}/> : 
-                            <Icon name='md-close' style={styles.header_icons}/> }  
-                     </Button>   
+                    {/* Render Nothing Here */}
                 </Left>
                 <Body>
                     <Title style={styles.header_title_text}>About</Title>

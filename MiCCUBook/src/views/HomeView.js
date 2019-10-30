@@ -57,18 +57,19 @@ export default class HomeView extends React.Component {
         })
     }
 
-    aboutButtonPressed = () => {
-        this.props.navigation.navigate('About');
+    downloadButtonPressed = () => {
+        // this.props.navigation.navigate('About');
+        console.log('Download Button Pressed')
     }
 
     renderHeader() {
         return (
             <Header searchBar>
                 <Left>
-                    <Button transparent onPress={() => this.aboutButtonPressed()}>
+                    <Button transparent onPress={() => this.downloadButtonPressed()}>
                         { Platform.OS === 'ios' ? 
-                            <Icon name='ios-information-circle-outline' style={styles.header_icons}/> : 
-                            <Icon name='md-information-circle-outline' style={styles.header_icons}/> }  
+                            <Icon name='ios-download' style={styles.header_icons}/> : 
+                            <Icon name='md-download' style={styles.header_icons}/> }  
                      </Button>   
                 </Left>
                 <Body>

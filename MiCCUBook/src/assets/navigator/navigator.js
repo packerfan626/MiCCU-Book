@@ -12,6 +12,9 @@ import PDFView from '@views/PDFView';
 // Components
 import { Icon } from 'native-base';
 import * as React from 'react';
+import { 
+    Platform, 
+} from 'react-native';
 
 const BottomTabNavigator = createBottomTabNavigator ({
     Calculator: {
@@ -20,8 +23,8 @@ const BottomTabNavigator = createBottomTabNavigator ({
     Home: {
         screen: HomeView
     },
-    Download: {
-        screen: HomeView
+    About: {
+        screen: AboutView
     },
 }, {
     headerMode: 'none',
@@ -42,9 +45,11 @@ const BottomTabNavigator = createBottomTabNavigator ({
                 )
             }
 
-            if (routeName==='Download') {
+            if (routeName==='About') {
                 return (
-                    <Icon name='download' size={40} style={{color:tintColor}}/>
+                    Platform.OS === 'ios' ? 
+                        <Icon name='ios-information-circle' size={40} style={{color:tintColor}}/> : 
+                        <Icon name='md-information-circle' size={40} style={{color:tintColor}}/> 
                 )
             }
         }
@@ -54,9 +59,6 @@ const BottomTabNavigator = createBottomTabNavigator ({
 const MainAppNavigator = createStackNavigator ({
     BottomTabs: {
         screen: BottomTabNavigator
-    },
-    About: {
-        screen: AboutView
     },
     PDF: {
         screen: PDFView
