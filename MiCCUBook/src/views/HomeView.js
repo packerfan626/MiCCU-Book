@@ -17,6 +17,7 @@ import {
 } from 'react-native';
 import colors from '@assets/colors';
 import SectionCard from '@components/SectionCard';
+import RNFS from 'react-native-fs';
 import { openDatabase } from 'react-native-sqlite-storage';
 
 // // Connection to access pre-populated MiCCU.db
@@ -58,22 +59,35 @@ export default class HomeView extends React.Component {
     }
 
     downloadButtonPressed = () => {
-        // this.props.navigation.navigate('About');
-        console.log('Download Button Pressed')
+        // const file = 'CICUHandbook_v13.pdf'
+        // const fullFileDirectory = require('../assets/pdf/CICUHandbook_v13.pdf')
+        // const dest = `${RNFS.DocumentDirectoryPath}/${file}`
+        // RNFS.copyFile(fullFileDirectory, dest)
+        // .then(() => {
+        //     console.log('Success')
+        // })
+        // .catch(_err => {
+        //     console.log(err)
+        // });
+        // // this.props.navigation.navigate('About');
+        // console.log('Download Button Pressed')
     }
 
     renderHeader() {
         return (
             <Header searchBar>
                 <Left>
-                    <Button transparent onPress={() => this.downloadButtonPressed()}>
+                    <Button disabled transparent onPress={() => this.downloadButtonPressed()}>
                         { Platform.OS === 'ios' ? 
-                            <Icon name='ios-download' style={styles.header_icons}/> : 
-                            <Icon name='md-download' style={styles.header_icons}/> }  
+                            <Icon name='ios-download' style={styles.header_icons_ios}/> : 
+                            <Icon name='md-download' style={styles.header_icons_android}/> }  
                      </Button>   
                 </Left>
                 <Body>
-                    <Title style={styles.header_title_text}>MiCCU</Title>
+                    <Title style={ 
+                        Platform.OS ==='ios' ? 
+                            styles.header_title_text_ios : 
+                            styles.header_title_text_android}>MiCCU</Title>
                 </Body>
                 <Right>
                     {/* Render Nothing Here */}
@@ -119,10 +133,16 @@ const styles = StyleSheet.create({
     header: {
         backgroundColor: colors.TOP_HEADER_BACKGROUND,
     },
-    header_title_text: {
-        color:colors.TOP_HEADER_TEXT,
+    header_title_text_ios: {
+        color:colors.TOP_HEADER_TEXT_IOS,
     },
-    header_icons: {
-        color:colors.TOP_HEADER_ICONS,
-    }
+    header_title_text_android: {
+        color:colors.TOP_HEADER_TEXT_ANDROID,
+    },
+    header_icons_ios: {
+        color:colors.TOP_HEADER_ICONS_IOS,
+    },
+    header_icons_android: {
+        color:colors.TOP_HEADER_ICONS_ANDROID,
+    },
 })

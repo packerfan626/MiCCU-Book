@@ -17,7 +17,6 @@ import {
  import colors from '@assets/colors';
 
 export default class CalculatorView extends React.Component {
-
     constructor(props){
         super(props);
     }
@@ -26,7 +25,7 @@ export default class CalculatorView extends React.Component {
         return(
           <Container>
               <Content>
-                  <Text>CalculatorView</Text>
+                  <Text>Coming Soon</Text>
               </Content>
           </Container>
         )

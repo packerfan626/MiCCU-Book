@@ -5,20 +5,16 @@ import {
     Left,
     Body,
     Right,
-    Button,
-    Icon,
     Title,
     Text,
     Content,
 } from 'native-base';
 import { 
-    Platform, 
     StyleSheet 
 } from 'react-native';
 import colors from '@assets/colors';
 
 export default class AboutView extends React.Component {
-
     constructor(props){
         super(props);
     }
@@ -34,7 +30,10 @@ export default class AboutView extends React.Component {
                     {/* Render Nothing Here */}
                 </Left>
                 <Body>
-                    <Title style={styles.header_title_text}>About</Title>
+                    <Title style={ 
+                        Platform.OS ==='ios' ? 
+                            styles.header_title_text_ios : 
+                            styles.header_title_text_android}>About</Title>
                 </Body>
                 <Right>
                     {/* Render Nothing Here */}
@@ -84,8 +83,11 @@ const styles = StyleSheet.create({
     header: {
         backgroundColor: colors.TOP_HEADER_BACKGROUND,
     },
-    header_title_text: {
-        color:colors.TOP_HEADER_TEXT,
+    header_title_text_ios: {
+        color:colors.TOP_HEADER_TEXT_IOS,
+    },
+    header_title_text_android: {
+        color:colors.TOP_HEADER_TEXT_ANDROID,
     },
     header_icons: {
         color:colors.TOP_HEADER_ICONS,

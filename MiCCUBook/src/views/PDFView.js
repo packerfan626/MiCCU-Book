@@ -48,12 +48,15 @@ export default class PDFView extends React.Component {
                 <Left>
                     <Button transparent onPress={this.onBackPressed}>
                         { Platform.OS === 'ios' ? 
-                            <Icon name='ios-arrow-back' style={styles.header_icons}/> : 
-                            <Icon name='md-arrow-back' style={styles.header_icons}/> }  
+                            <Icon name='ios-arrow-back' style={styles.header_icons_ios}/> : 
+                            <Icon name='md-arrow-back' style={styles.header_icons_android}/> }  
                      </Button>   
                 </Left>
                 <Body style={{flex: 3}}>
-                    <Title style={styles.header_title_text}>{this.state.title}</Title>
+                    <Title style={ 
+                        Platform.OS ==='ios' ? 
+                            styles.header_title_text_ios : 
+                            styles.header_title_text_android}>{this.state.title}</Title>
                 </Body>
                 <Right>
                     {/* Render Nothing Here */}
@@ -88,11 +91,17 @@ const styles = StyleSheet.create({
     header: {
         backgroundColor: colors.TOP_HEADER_BACKGROUND,
     },
-    header_title_text: {
-        color:colors.TOP_HEADER_TEXT,
+    header_title_text_ios: {
+        color:colors.TOP_HEADER_TEXT_IOS,
     },
-    header_icons: {
-        color:colors.TOP_HEADER_ICONS,
+    header_title_text_android: {
+        color:colors.TOP_HEADER_TEXT_ANDROID,
+    },
+    header_icons_ios: {
+        color:colors.TOP_HEADER_ICONS_IOS,
+    },
+    header_icons_android: {
+        color:colors.TOP_HEADER_ICONS_ANDROID,
     },
     pdf: {
         flex:1,
