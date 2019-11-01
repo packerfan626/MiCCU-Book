@@ -10,7 +10,8 @@ import {
     Content,
 } from 'native-base';
 import { 
-    StyleSheet 
+    StyleSheet,
+    Dimensions, 
 } from 'react-native';
 import colors from '@assets/colors';
 
@@ -43,36 +44,35 @@ export default class AboutView extends React.Component {
     }
 
     render() {
-        return(
+        return (
           <Container>
               {this.renderHeader()}
-                <Content>
-                    <Container style={styles.text_container}>
-                        <Text style={styles.book_title_text}>
-                            The University of Michigan MiCCU Book
-                        </Text>
-                        <Text style={styles.acknowledgements_title_text}>
-                            Acknowledgements
-                        </Text>
-                        <Text style={styles.acknowledgements_text}>
-                            Sarah Adie, PharmD {"\n"}
-                            Ahmad A. Abdul-A ziz, MD {"\n"}
-                            Ran Lee, MD {"\n"}
-                            Michael P. Thomas, MD
-                        </Text>
-                        <Text>
-                            Brief Description of Handbook {"\n"}
-                            Brief Description of Handbook {"\n"}
-                            Brief Description of Handbook {"\n"}
-                            Brief Description of Handbook {"\n"}
-                            Brief Description of Handbook {"\n"}
-                            Brief Description of Handbook {"\n"}
-                        </Text>
+                <Container style={styles.text_container}>
+                    <Text style={styles.book_title_text}>
+                        The University of Michigan MiCCU Book
+                    </Text>
+                    <Text style={styles.acknowledgements_title_text}>
+                        Acknowledgements
+                    </Text>
+                    <Text style={styles.acknowledgements_text}>
+                        Sarah Adie, PharmD {"\n"}
+                        Ahmad A. Abdul-A ziz, MD {"\n"}
+                        Ran Lee, MD {"\n"}
+                        Michael P. Thomas, MD {"\n"}
+                        DJM Software, LLC {"\n"}
+                        Dori J. Mouawad {"\n"}
+                        Jana Abumeri
+                    </Text>
+                    <Text style={styles.description_text}>
+                        MiCCU is a mobile-based handbook designed to 
+                        improve the clinical and educational experience 
+                        of trainees rounding in the Cardiac Intensive Care
+                         Unit (CCU) at the University of Michigan.
+                    </Text>
                     </Container>
-                </Content>
-                <Text style={styles.footer_text}>
-                    Copyright © 2019 University of Michigan
-                </Text>
+                    <Text style={styles.footer_text}>
+                        Copyright © 2019 University of Michigan
+                    </Text>
             </Container>
         )
     }
@@ -93,8 +93,10 @@ const styles = StyleSheet.create({
         color:colors.TOP_HEADER_ICONS,
     },
     text_container: {
+        height: Dimensions.get('window').height,
         alignItems: 'center',
         justifyContent: 'center',
+        flex: 1
     },
     book_title_text: {
         fontSize: 20,
@@ -102,6 +104,7 @@ const styles = StyleSheet.create({
     },
     acknowledgements_title_text: {
         fontSize: 15,
+        textAlign: 'center',
         fontWeight: 'bold'
     },
     acknowledgements_text: {
@@ -113,5 +116,9 @@ const styles = StyleSheet.create({
         justifyContent: 'flex-end',
         paddingBottom: 15,
         alignSelf: 'center'
-    }
+    },
+    description_text: {
+        textAlign: 'center',
+        alignItems: 'center'
+    },
 })

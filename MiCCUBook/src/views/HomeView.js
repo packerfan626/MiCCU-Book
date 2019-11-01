@@ -10,6 +10,7 @@ import {
     Title,
     List,
     Content,
+    Spinner,
 } from 'native-base';
 import { 
     Platform, 
@@ -73,6 +74,14 @@ export default class HomeView extends React.Component {
         // console.log('Download Button Pressed')
     }
 
+    renderSpinner() {
+        return (
+            <View>
+                <Spinner color={colors.MICHIGAN_BLUE} />
+            </View>
+        )
+    }
+
     renderHeader() {
         return (
             <Header searchBar>
@@ -96,12 +105,12 @@ export default class HomeView extends React.Component {
         )
     }
 
-    renderSectionList() {
+    renderSectionListItems() {
         var sections = this.state.sections
         return sections.map((section) => {
             // Convert pageNumber to an integer
             var pageNumber = Number(section.pdfPageNumber)
-            return(
+            return (
                 <SectionCard 
                     id={section.sectionNumber} 
                     title={section.sectionTitle} 
@@ -113,15 +122,21 @@ export default class HomeView extends React.Component {
         })
     }
 
+    renderSectionList() {
+        return (
+            <List>
+                {this.renderSectionListItems()}
+            </List>
+        )
+    }
+
     render() {
         var isLoading = this.state.isLoading
         return (
             <Container>
                 {this.renderHeader()}
                 <Content>
-                    <List>
-                        {isLoading ? <View></View> : this.renderSectionList()}
-                    </List>
+                    {isLoading ? this.renderSpinner() : this.renderSectionList()}
                 </Content>
             </Container>
         )
